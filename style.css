@@ -4,8 +4,8 @@ html{
     scroll-behavior: smooth;
 }
 body,html{
-    height: 100%;
-    min-height: 100vh;
+    /* height: 100%;
+    min-height: 100vh; */
     padding: 0;
     margin: 0;
     overflow-x: hidden;
@@ -128,7 +128,7 @@ aside{
 .blog{
     display: flex;
     align-items:stretch;
-    gap: 25px;
+    gap: 20px;
     max-width:375px;
 }
 .blog img{
@@ -145,6 +145,7 @@ aside{
 .blog .blog-title{
     color: hsl(240, 100%, 5%);
     cursor: pointer;
+    font-weight: 800;
 }
 .blog .blog-title:hover{
     color: hsl(5, 85%, 63%);
@@ -156,11 +157,95 @@ aside{
 }
 .menu-icon{
     display: none;
+}
+.closeIcon,.menu-icon{
     cursor: pointer;
     transition: opacity .15s ease-in;
 }
-.menu-icon:hover{
+.menu-icon:hover,.closeIcon:hover{
     opacity:.5;
+}
+.overlay{
+    all: unset;
+    position:fixed;
+    background-color: rgba(0,0,0,.5);
+    top:0;
+    bottom: 0;
+    right:0;
+    left: 0;
+    opacity: 0;
+    animation-name: initialMove;
+    animation-duration: .25s;
+    animation-fill-mode: forwards;
+    overflow-y:auto;
+}
+.overlay.hide{
+    animation-duration: .5s;
+    animation-name: lastMove;
+}
+@keyframes initialMove {
+    from {opacity:0;}
+    to {opacity: 1;}
+}
+@keyframes lastMove {
+    from {
+        opacity:1;
+        z-index: 1;
+    }
+    to {
+        opacity: 0;
+        z-index: -1;
+    }
+}
+.menu{
+    width:70%;
+    max-width: 500px;
+    min-height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 25px;
+    background-color: hsl(36, 100%, 99%);
+    transform: translateX(100%);
+    animation-delay: .15s;
+    animation-timing-function: ease-in-out;
+    animation-name: firstMove;
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
+}
+.menu * {
+    display: block;
+}
+.menu a{
+    all: unset;
+    display: block;
+    width: fit-content;
+    font-size: 1.15rem;
+    margin: 1.5rem 0;
+    color: hsl(240, 100%, 5%);
+    cursor: pointer;
+}
+.menu a:hover{
+    color: hsl(5, 85%, 63%);
+}
+.closeIcon{
+    margin:0 0 50px auto;
+}
+.menu.hide{
+    animation-delay: .0s;
+    animation-name: menuHide;
+    animation-duration: .35s;
+}
+.hidden{
+    display: none;
+}
+@keyframes firstMove {
+    from {transform:translateX(100%);}
+    to {transform:translateX(0);}
+}
+@keyframes menuHide {
+    from {transform:translateX(0);}
+    to {transform:translateX(100%);}
 }
 @media screen and (max-width:1400px) {
     .blog img{
