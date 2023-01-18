@@ -16,3 +16,11 @@ function toggleMenu(){
     overlay.classList.toggle("hide");
     menu.classList.toggle("hide");
 }
+
+function checkViewSize(query){
+    if (query.matches && (!menu.classList.contains("hidden") && !menu.classList.contains("hide") )){ 
+        toggleMenu()
+    }
+}
+const query=window.matchMedia("(min-width:675px)");
+query.addListener(checkViewSize);
