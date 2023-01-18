@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
+html{
+    font-size: 15px;
+    scroll-behavior: smooth;
+}
+body,html{
+    height: 100%;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+body{
+    height: 100%;
+    min-height: 100vh;
+    position: relative;
+    background-color:#fefdf9;
+}
+*{
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif !important;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0px 35px;
+}
+nav .logo{
+    margin-right: auto;
+    cursor: pointer;
+    transition: opacity .15s ease-in-out;
+}
+nav .logo:hover{
+    opacity: .5;
+}
+nav a{
+    all: unset;
+    color: hsl(236, 13%, 42%);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: color .15s ease ;
+}
+nav a:hover{
+    color: hsl(5, 85%, 63%);
+}
+body > *{
+    width: 80%;
+    margin: 65px auto;
+    max-width: 1152px;
+}
+.aside-title{
+    font-size: 2.5rem;
+    color: hsl(35, 77%, 62%);
+    margin-block:0 2rem;
+}
+.article-title{
+    font-size: 1.35rem;
+    color: hsl(36, 100%, 99%);
+    margin-block:2rem 1rem !important;
+    cursor: pointer;
+}
+.article-title:hover{
+    color: hsl(35, 77%, 62%);
+}
+.article-text{
+    color: hsl(233, 8%, 79%);
+    line-height:1.75rem;
+    margin-block:7px;
+    font-size: 1rem;
+}
+.main-article-text{
+    color: hsl(236, 13%, 42%);
+    line-height:1.75rem;
+}
+button{
+    font-weight: 700;
+    letter-spacing: 5px;
+    padding: 15px 30px;
+    background-color: hsl(5, 85%, 63%);
+    border: none;
+    outline: none;
+    color: hsl(36, 100%, 99%);
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background .15s ease-in-out;
+}
+button:hover{
+    background:hsl(240, 100%, 5%);
+}
+aside article:not(:last-child){
+    padding-bottom: 15px;
+    border-bottom: 1px solid hsl(236, 13%, 42%);
+}
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: auto auto;
+    gap: 25px 30px;
+}
+aside{
+    background-color: hsl(240, 100%, 5%);
+    width: 100%;
+    min-width:100%;
+    padding: 25px 20px;
+    grid-area: 1 / 3 / span 2 / 3;
+}
+.image{
+    min-height: 300px;
+    background-image: url("./assets/images/image-web-3-desktop.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    grid-area: 1 / 1 / 1 / span 2;
+}
+.main-title{
+    font-size: 3.7rem;
+    font-weight: 800;
+    margin-block: 0;
+    color: hsl(240, 100%, 5%);
+}
+.blogs{
+    display: flex;
+    gap: 35px;
+    justify-content: space-between;
+}
+.blog{
+    display: flex;
+    align-items:stretch;
+    gap: 25px;
+    max-width:375px;
+}
+.blog img{
+    align-self: center;
+    max-width: 115px;
+    min-width:115px;
+    height: auto;
+}
+.blog .number{
+    color: hsl(233, 8%, 79%);
+    font-weight: 700;
+    font-size: 2rem;
+}
+.blog .blog-title{
+    color: hsl(240, 100%, 5%);
+    cursor: pointer;
+}
+.blog .blog-title:hover{
+    color: hsl(5, 85%, 63%);
+}
+.blog .blog-text{
+    color: hsl(236, 13%, 42%);
+    line-height: 1.65rem;
+    margin-block-end: 0;
+}
+.menu-icon{
+    display: none;
+    cursor: pointer;
+    transition: opacity .15s ease-in;
+}
+.menu-icon:hover{
+    opacity:.5;
+}
+@media screen and (max-width:1400px) {
+    .blog img{
+        align-self: stretch;
+        max-width: 135px;
+    }
+}
+@media screen and (max-width:1220px) {
+    body > * {
+        width: 95%;
+    }
+    .blog-content{
+        max-width: 175px;
+    }
+}
+@media screen and (max-width:975px) {
+    html{
+        font-size: 14px;
+    }
+    .blogs{
+        gap: 35px 20px;
+    }
+    
+}
+@media screen and (max-width:875px){
+    nav,.container{
+        margin: 40px auto;
+    }
+    .blogs{
+        flex-direction: column;
+    }
+    .blog{
+        max-width: unset;
+    }
+    .blog-content{
+        max-width:unset;
+    }
+    .blog img{
+        width: 100%;
+    }
+    .container{
+        display:flex;
+        flex-direction: column;
+        gap:15px;
+    }
+    .main-title{
+        font-size: 3rem;
+    }
+    .main-article-text{
+        margin-block-start: 0;
+        max-width: 700px;
+    }
+    button{
+        margin-bottom:25px;
+    }
+    .image{
+        background-image: url("./assets/images/image-web-3-mobile.jpg");
+    }
+}
+@media screen and (max-width:675px) {
+    nav a{
+        display: none;
+    }
+    .menu-icon{
+        display: initial;
+    }
+    .logo{
+        height: auto;
+        width: 40px;
+    }
+}
